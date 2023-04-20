@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('GIT-CODE') {
             steps {
-                git branch: 'master', url: 'https://github.com/nk-naveen/Jenkins-assign'
+                git branch: 'master', url: 'https://github.com/nk-naveen/Jenkins-assignment'
             }
         }
         stage('CONTINOUS-INTEGRATION') {
@@ -19,7 +19,7 @@ pipeline {
                 S3_BUCKET = 'aws-sam-cli-managed-default-samclisourcebucket-mj6zdx1naar'
             }
             steps {
-                withAWS(credentials: 'jenkins-creds', region: 'us-east-1') {
+                withAWS(credentials: 'aws creds', region: 'us-east-1') {
                     sh 'sam deploy --stack-name $STACK_NAME -t template.yaml --s3-bucket $S3_BUCKET --capabilities CAPABILITY_IAM'
                 }
             }
