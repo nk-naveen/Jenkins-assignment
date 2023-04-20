@@ -10,7 +10,7 @@ pipeline {
         }
         stage('CONTINOUS-INTEGRATION') {
             steps {
-                sh 'python3 $WORKSPACE/Cal/testcalculator.py'
+                sh 'python3 $WORKSPACE/Cal/test_calculator.py'
             }
         }
         stage('CONTINOUS-DEPLOYMENT/DELIVERY') {
